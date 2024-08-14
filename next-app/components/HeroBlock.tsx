@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { HeroBlockController } from "../controller/HeroBlockController";
 import { HeroBlockProps } from "../models/HeroBlockModel";
-import { Button } from "../ui/button";
+import { Button } from "./ui/button";
 
 const HeroBlock = (props: HeroBlockProps) => {
   const controller = new HeroBlockController(props);
@@ -27,7 +27,7 @@ const HeroBlock = (props: HeroBlockProps) => {
                 key={index}
                 variant={
                   btn.type === "primary" || btn.type === "secondary"
-                    ? (btn.type.toLocaleLowerCase() as "primary" | "secondary")
+                    ? (btn.type as "primary" | "secondary")
                     : "primary"
                 }
                 className="py-2 w-36 md:w-auto">
