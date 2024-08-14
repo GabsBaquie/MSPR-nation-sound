@@ -535,7 +535,7 @@ model components_blocks_ctas_components {
 model components_blocks_heroes {
   id                                  Int                                   @id @default(autoincrement()) @db.UnsignedInt
   text                                String?                               @db.LongText
-  heading                             String?                               @db.VarChar(255)
+  title                               String?                               @db.VarChar(255)
   components_blocks_heroes_components components_blocks_heroes_components[]
 }
 
@@ -750,4 +750,26 @@ model services {
 
   @@index([created_by_id], map: "services_created_by_id_fk")
   @@index([updated_by_id], map: "services_updated_by_id_fk")
+}
+
+model components_elements_sections {
+  id                                      Int                                       @id @default(autoincrement()) @db.UnsignedInt
+  title                                   String?                                   @db.VarChar(255)
+  description                             String?                                   @db.LongText
+  components_elements_sections_components components_elements_sections_components[]
+}
+
+model components_elements_sections_components {
+  id                           Int                           @id @default(autoincrement()) @db.UnsignedInt
+  entity_id                    Int?                          @db.UnsignedInt
+  component_id                 Int?                          @db.UnsignedInt
+  component_type               String?                       @db.VarChar(255)
+  field                        String?                       @db.VarChar(255)
+  order                        Float?
+  components_elements_sections components_elements_sections? @relation(fields: [entity_id], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "components_elements_sections_entity_fk")
+
+  @@unique([entity_id, component_id, field, component_type], map: "components_elements_sections_unique")
+  @@index([component_type], map: "components_elements_sections_component_type_index")
+  @@index([entity_id], map: "components_elements_sections_entity_fk")
+  @@index([field], map: "components_elements_sections_field_index")
 }

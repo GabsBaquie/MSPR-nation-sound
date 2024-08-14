@@ -1,36 +1,197 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Mon Projet Web
 
-## Getting Started
+Ce projet est une application web composée d'un frontend développé avec Next.js et d'un backend développé avec Strapi CMS et Prisma.
 
-First, run the development server:
+## Table des matières
+
+- [Prérequis](#prérequis)
+- [Installation](#installation)
+- [Démarrage](#démarrage)
+- [Structure du Projet](#structure-du-projet)
+- [Déploiement](#déploiement)
+- [Ressources](#ressources)
+
+## Prérequis
+
+- Node.js (version >= 18.0.0 <= 20.x.x)
+- npm (version >= 6.0.0)
+- MySQL (pour la base de données Strapi)
+- Prisma (pour la gestion de la base de données)
+
+## Installation
+
+### Backend (Strapi CMS et Prisma)
+
+1. Clonez le dépôt du backend :
+
+   ```bash
+   git clone <url-du-repo-backend> strapi-CMS
+   cd strapi-CMS
+   ```
+
+2. Installez les dépendances :
+
+   ```bash
+   npm install
+   ```
+
+3. Configurez les variables d'environnement en copiant le fichier `.env.example` en `.env` et en modifiant les valeurs selon vos besoins.
+
+4. Initialisez Prisma :
+
+   ```bash
+   npx prisma init
+   ```
+
+5. Appliquez les migrations Prisma :
+   ```bash
+   npx prisma migrate dev
+   ```
+
+### Frontend (Next.js)
+
+1. Clonez le dépôt du frontend :
+
+   ```bash
+   git clone <url-du-repo-frontend> next-app
+   cd next-app
+   ```
+
+2. Installez les dépendances :
+
+   ```bash
+   npm install
+   ```
+
+3. Configurez les variables d'environnement en créant un fichier `.env` et en ajoutant les valeurs nécessaires, par exemple :
+   ```env
+   NEXT_PUBLIC_API_URL=http://localhost:1337
+   ```
+
+## Démarrage
+
+### Backend (Strapi CMS et Prisma)
+
+Pour démarrer le backend en mode développement avec autoReload :
+
+```bash
+npm run develop
+# ou
+yarn develop
+```
+
+Pour démarrer le backend en mode production :
+
+```bash
+npm run start
+# ou
+yarn start
+```
+
+### Frontend (Next.js)
+
+Pour démarrer le frontend en mode développement :
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
+# ou
 pnpm dev
-# or
+# ou
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrez [http://localhost:3000](http://localhost:3000) avec votre navigateur pour voir le résultat.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Structure du Projet
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Backend (Strapi CMS et Prisma)
 
-## Learn More
+```
+strapi-CMS/
+├── config/
+├── database/
+├── public/
+├── src/
+├── .editorconfig
+├── .env
+├── .env.example
+├── .gitignore
+├── .strapi/
+├── .strapi-updater.json
+├── package.json
+├── README.md
+├── tsconfig.json
+├── types/
+├── prisma/
+│   ├── schema.prisma
+│   ├── migrations/
+│   └── lib/
+│       └── prisma.ts
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Frontend (Next.js)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+next-app/
+├── app/
+├── components/
+├── controller/
+├── lib/
+├── models/
+├── pages/
+├── prisma/
+├── public/
+├── types/
+├── ui/
+├── .env
+├── .eslintrc.json
+├── .gitignore
+├── .next/
+├── components.json
+├── next-env.d.ts
+├── next.config.mjs
+├── package.json
+├── postcss.config.js
+├── README.md
+├── tailwind.config.js
+├── tsconfig.json
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Déploiement
 
-## Deploy on Vercel
+### Backend (Strapi CMS et Prisma)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Strapi offre plusieurs options de déploiement. Consultez la [documentation de déploiement de Strapi](https://docs.strapi.io/dev-docs/deployment) pour plus de détails.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Pour déployer sur Strapi Cloud :
+
+```bash
+yarn strapi deploy
+```
+
+### Frontend (Next.js)
+
+Le moyen le plus simple de déployer votre application Next.js est d'utiliser la [plateforme Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
+
+Consultez la [documentation de déploiement de Next.js](https://nextjs.org/docs/deployment) pour plus de détails.
+
+## Ressources
+
+### Backend (Strapi CMS et Prisma)
+
+- [Centre de ressources Strapi](https://strapi.io/resource-center)
+- [Documentation Strapi](https://docs.strapi.io)
+- [Tutoriels Strapi](https://strapi.io/tutorials)
+- [Blog Strapi](https://strapi.io/blog)
+- [Changelog Strapi](https://strapi.io/changelog)
+- [Dépôt GitHub Strapi](https://github.com/strapi/strapi)
+- [Documentation Prisma](https://www.prisma.io/docs)
+- [Dépôt GitHub Prisma](https://github.com/prisma/prisma)
+
+### Frontend (Next.js)
+
+- [Documentation Next.js](https://nextjs.org/docs)
+- [Tutoriel interactif Next.js](https://nextjs.org/learn)
+- [Dépôt GitHub Next.js](https://github.com/vercel/next.js)
