@@ -1,4 +1,3 @@
-````markdown
 # Mon Projet Web - Frontend
 
 Ce projet est une application web composée d'un frontend développé avec Next.js, suivant l'architecture MVC (Model-View-Controller).
@@ -26,7 +25,6 @@ Ce projet est une application web composée d'un frontend développé avec Next.
    git clone <url-du-repo-frontend> next-app
    cd next-app
    ```
-````
 
 2. Installez les dépendances :
 
@@ -109,7 +107,3 @@ Consultez la [documentation de déploiement de Next.js](https://nextjs.org/docs/
 - [Documentation Next.js](https://nextjs.org/docs)
 - [Tutoriel interactif Next.js](https://nextjs.org/learn)
 - [Dépôt GitHub Next.js](https://github.com/vercel/next.js)
-
-```
-
-```
